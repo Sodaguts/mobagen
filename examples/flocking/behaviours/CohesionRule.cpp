@@ -12,7 +12,7 @@ Vector2f CohesionRule::computeForce(const std::vector<Boid*>& neighborhood, Boid
       totalNeighborPosition += neighborhood[i]->getPosition();
   }
   Vector2f centerMassPosition = totalNeighborPosition / neighborhood.size();
-  Vector2f directionToCenterMass = boid->getPosition() - centerMassPosition;
+  Vector2f directionToCenterMass =  centerMassPosition - boid->getPosition();
   float magnitudeToCenterMass = sqrt((directionToCenterMass.x * directionToCenterMass.x) + (directionToCenterMass.y*directionToCenterMass.y));
 
   if(magnitudeToCenterMass <= boid->getDetectionRadius())
