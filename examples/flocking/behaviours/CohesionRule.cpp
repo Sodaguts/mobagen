@@ -21,7 +21,7 @@ Vector2f CohesionRule::computeForce(const std::vector<Boid*>& neighborhood, Boid
   }
   else if(magnitudeToCenterMass > boid->getDetectionRadius())
   {
-      cohesionForce = Vector2f(0.0,0.0);
+      cohesionForce = Vector2f::zero();
   }
 
   return cohesionForce;
