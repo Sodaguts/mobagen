@@ -10,7 +10,7 @@ Vector2f SeparationRule::computeForce(const std::vector<Boid*>& neighborhood, Bo
   if(!neighborhood.empty())
   {
       for(int i = 0; i < neighborhood.size(); i++){
-          Vector2f differenceVector =   boid->getPosition()- neighborhood[i]->getPosition();
+          Vector2f differenceVector = boid->getPosition() - neighborhood[i]->getPosition();
           auto distance = differenceVector.getMagnitude();
 
           if(distance < desiredMinimalDistance)

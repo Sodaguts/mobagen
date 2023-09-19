@@ -6,7 +6,7 @@ Vector2f CohesionRule::computeForce(const std::vector<Boid*>& neighborhood, Boid
 
   // todo: add your code here to make a force towards the center of mass
   // hint: iterate over the neighborhood
-  Vector2f totalNeighborPosition;
+  Vector2f totalNeighborPosition = Vector2f::zero();
   for(int i = 0; i < neighborhood.size(); i++)
   {
       totalNeighborPosition += neighborhood[i]->getPosition();
