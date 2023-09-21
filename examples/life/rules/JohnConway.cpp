@@ -26,6 +26,10 @@ void JohnConway::Step(World& world) {
                     //survive
                     world.SetNext(currentPoint, true);
                 }
+                else
+                {
+                    world.SetNext(currentPoint, false);
+                }
             }
             else if(world.Get(currentPoint) == false)
             {
@@ -34,26 +38,16 @@ void JohnConway::Step(World& world) {
                 {
                     world.SetNext(currentPoint, true);
                 }
+                else
+                {
+                    world.SetNext(currentPoint, false);
+                }
             }
         }
     }
 }
 
 int JohnConway::CountNeighbors(World& world, Point2D point) {
-    int numNeighbors = 0;
-    for(int y = -1; y <= 1; y++)
-    {
-        for(int x = -1; x <= 1; x++)
-        {
-            if(x != 0 && y !=0)
-            {
-                //check around the point
-                if(world.Get(Point2D(point.x + x, point.y + y)))
-                {
-                    numNeighbors++;
-                }
-            }
-        }
-    }
+    int numNeighbors = world.Get(point.Up()) + world.Get(point.Up().Left()) + world.Get(point.Up().Right()) + world.Get(point.Right()) + world.Get(point.Left()) + world.Get(point.Down()) + world.Get(point.Down().Left()) + world.Get(point.Down().Right());
     return numNeighbors;
 }
